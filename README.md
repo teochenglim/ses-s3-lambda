@@ -15,8 +15,9 @@ This Terraform configuration creates a complete email processing pipeline using 
 ## Architecture
 📨 Email -> WorkMail -> SES -> S3 (raw) -> Lambda -> S3 (parsed)
 
-### S3
+### S3 designed for processing
 
+<pre>
 s3://your-bucket/
 ├── raw/
 │ └── <message_id>
@@ -30,7 +31,7 @@ s3://your-bucket/
   └── file2.jpg
 └── embedded_images/
   └── image1.png
-
+</pre>
 
 ## Deployment
 
