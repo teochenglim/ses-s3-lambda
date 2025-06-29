@@ -22,15 +22,15 @@ s3://your-bucket/
 ├── raw/
 │ └──[message_id] (.eml file)
 └── parsed/
-└── [message_id]/
-├── metadata.json
-├── content.txt
-├── content.html
-├── attachments/
-  ├── file1.pdf
-  └── file2.jpg
-└── embedded_images/
-  └── image1.png
+          └──[message_id]/
+                         ├── metadata.json
+                         ├── content.txt
+                         ├── content.html
+                         ├── attachments/
+                                         ├── file1.pdf
+                                         └── file2.jpg
+                         └── embedded_images/
+                                            └── image1.png
 </pre>
 
 ## Deployment
