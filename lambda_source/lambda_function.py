@@ -45,9 +45,8 @@ def save_part(part, base_path, part_type, metadata, bucket_name):
     try:
         content_type = part.get_content_type()
         filename = part.get_filename()
-        
+
         if not filename:
-            # Generate filename based on content type
             ext_map = {
                 'text/plain': 'txt',
                 'text/html': 'html',
@@ -58,19 +57,19 @@ def save_part(part, base_path, part_type, metadata, bucket_name):
             }
             ext = ext_map.get(content_type, 'bin')
             filename = f"{part_type}_{uuid.uuid4().hex[:8]}.{ext}"
-        
+
         key = f"{base_path}/{part_type}/{filename}"
         content = part.get_payload(decode=True)
         if not content:
             raise ValueError("Empty content payload")
-        
+
         s3.put_object(
             Bucket=bucket_name,
             Key=key,
             Body=content,
             ContentType=content_type
         )
-        
+
         part_metadata = {
             "filename": filename,
             "content_type": content_type,
@@ -78,11 +77,11 @@ def save_part(part, base_path, part_type, metadata, bucket_name):
             "s3_key": key,
             "content_id": clean_content_id(part.get('Content-ID', ''))
         }
-        
-        metadata[f"{part_type}s"].append(part_metadata)
+
+        metadata.setdefault(f"{part_type}s", []).append(part_metadata)
         logger.info(f"Saved {part_type}: {filename} (Content-ID: {part_metadata['content_id']})")
         return part_metadata
-        
+
     except Exception as e:
         error_msg = f"Error saving {part_type} '{filename}': {type(e).__name__} - {str(e)}"
         logger.error(error_msg)

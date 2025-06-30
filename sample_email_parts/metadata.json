@@ -1,0 +1,68 @@
+{
+  "errors": [],
+  "message_id": "in3vrmmsm30148h8kfi4qmut4n26unsnfs9o1fg1",
+  "headers": {
+    "Return-Path": "<chenglim.teo@thoughtworks.com>",
+    "Received": "by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-55516abe02cso1188960e87.0        for <test@chenglimteo5.awsapps.com>; Sun, 29 Jun 2025 21:06:37 -0700 (PDT)",
+    "X-SES-Spam-Verdict": "PASS",
+    "X-SES-Virus-Verdict": "PASS",
+    "Received-SPF": "pass (spfCheck: domain of thoughtworks.com designates 209.85.167.44 as permitted sender) client-ip=209.85.167.44; envelope-from=chenglim.teo@thoughtworks.com; helo=mail-lf1-f44.google.com;",
+    "Authentication-Results": "amazonses.com; spf=pass (spfCheck: domain of thoughtworks.com designates 209.85.167.44 as permitted sender) client-ip=209.85.167.44; envelope-from=chenglim.teo@thoughtworks.com; helo=mail-lf1-f44.google.com; dkim=pass header.i=@thoughtworks.com; dmarc=pass header.from=thoughtworks.com;",
+    "X-SES-RECEIPT": "AEFBQUFBQUFBQUFGK1g5emEyNTZyUTlqeW5BMFN1cTY4RFl2WTRLRDhDcldqZUJCeEI2VW9ndVZ5dHpPUytuYkt5WmtFTE1lZkN0SXkwN2pxRWsyeGl3OHBROXdVWjJOMkE5ek9FTkdZZ2h6K1VtemFzSTVPS09PNmdWQUtJZENPSThrYW13QXdiTGtVdGtWaEN3UTE0NkVSNGhmbytZYlNSaFVJN3pGRjBhREtqNTN4TkFmQkp5Y2tOeW5RS2pqb1lTUTFQdWxlcW8wdHBVYjBCbkhzeXNkUDVxTDk4ZHk3Mld0YjFtdXcvUmZUOGtYRFJxVmFUV3FLNW1TYmQwNDNsOEtWOU1vRHJ5VExqVTlrQ0EvOG1RM2JjNWFUUTdHT05SSG9DV0ZOQk1IT3RTZXZzZ2NVZ1E9PQ==",
+    "X-SES-DKIM-SIGNATURE": "a=rsa-sha256; q=dns/txt; b=qmUIzzRvIwU1KisnHkMg8QrBXlpFppmz7zJnM7JNCGJsq7IndEwcz32UXjqSDkTiWTQl3xsdisO3BQ59jyp8Dlpyjnz7KNgqQC4UM3p84HKSEm/syzBUIQEydaa49ibfoeNeRz4xQYqyQM1MIXtJXs2spM2hyQZ/IjZvML0QAE8=; c=relaxed/simple; s=gdwg2y3kokkkj5a55z2ilkup5wp5hhxx; d=amazonses.com; t=1751256400; v=1; bh=3XVJxH11+WPmqUmRI55btQc7O1DMzP2xsBkr0anAPhg=; h=From:To:Cc:Bcc:Subject:Date:Message-ID:MIME-Version:Content-Type:X-SES-RECEIPT;",
+    "DKIM-Signature": "v=1; a=rsa-sha256; c=relaxed/relaxed;        d=thoughtworks.com; s=thoughtworks; t=1751256395; x=1751861195; darn=chenglimteo5.awsapps.com;        h=to:subject:message-id:date:from:in-reply-to:references:mime-version         :from:to:cc:subject:date:message-id:reply-to;        bh=kjhc0skaLp8GTJe6Ikpu524tGIOSFmGESXPaX8H2GRo=;        b=QIYIaPKe1dXmsNJnC+np+EzbZWGp1nty/AHUaxcnyPXtZs/sz0ghC64saOlX3Kgr0D         Clqj9mh9kt1bIh26WBEcYI2S5rdpWvxPHdfsljKY/3MoVBy54Jhh47U7s2KKPvzJKmfj         G2t/qOF5y2FdMED0wY/aqbeNViknU0ihUOEDyQn+2E+olrMcWJMqgmp8WYk1xdK9eQJa         tSQYJKI0ImIcu1yAO6hzEkzu/99+rkeQrwjzz5w+fmvsUSVWBb6cSvEeBsqreca2gKI2         nMDU8x5TVvfJLyBt+Tl3+HJFNadePaHEFVTlklbbfyJVDSyRxclJtob8bEcfKz+DiThC         Jp9g==",
+    "X-Google-DKIM-Signature": "v=1; a=rsa-sha256; c=relaxed/relaxed;        d=1e100.net; s=20230601; t=1751256395; x=1751861195;        h=to:subject:message-id:date:from:in-reply-to:references:mime-version         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;        bh=kjhc0skaLp8GTJe6Ikpu524tGIOSFmGESXPaX8H2GRo=;        b=u/mAuTncYRemFu4v64POLgnVJx8CCoZeYixgF7hk6Cjgkascyve1U8WwRH8YcbIBme         9k2GEMPsL3TCVGihGsWM7dae06rqXH75JXdF9v9m0yc53aT15eM9bG2Og1b2LcMJipC3         TRzRuQhZ3EUzZGGcPtvaIXNxpXhwKR6hOr3ezihrjJU4e6Npb3efL5XAEqnT8OAghfYF         5Qn4eKOoXm/1CGDlTOiw8uCDlZ0ePiDREy0zfRTHkIYBr7wniVJzw0YrZ+CD3ZWcoeiI         PQkTrTwrK+fZMfXi9uzcDov2BPbKs6uehVzz39L8tw2a/uPAvlCDk2MjOnyWCcGAnwyW         S5QQ==",
+    "X-Gm-Message-State": "AOJu0YzGqbhkD8axFf0ju0Fp6daovkx5HhV8k8sQi6Jl5ZFINSeZIm7e\t7sZmULt3bOmwiP62LYpfVqtOxk70uyeKzeeW+Mx6NLNNy0hOgvVoAhKYwA5xGom9nBL4p0zdL2K\tcjS0h/uuO7r+ZJ5mCvXcPjk2PLgLqxg9yZIYChpUS1PzjPHP+SbUI",
+    "X-Gm-Gg": "ASbGncsVsEJ8RxEb+KXb9ktdk4EYC6uIBGE4aIAnNtWpUc9nsnOr4fSTL8PPyLB68eb\tAhD7MQk6w4wuSSk0MgOCrrvlCWM4YingWiF+Euh7gaQ4Hd+H4jPTHDoiZX3GDm0AWPzhckRGiHE\t801WI3T1J6GPgxlf+D/CkOvhgj1sf1v5QjUVHDJwn1H5QO",
+    "X-Google-Smtp-Source": "AGHT+IGKYWRU/8t4RjMqtQwdkoPGFni2yNZrzmeOCeVfb5VwIUegK/GzkDlofhlGlC9EhLS/B0vlMlqvaanPPeDwQk4=",
+    "X-Received": "by 2002:ac2:4bd1:0:b0:554:f82f:180e with SMTP id 2adb3069b0e04-55502cb4e30mr5352924e87.16.1751256392962; Sun, 29 Jun 2025 21:06:32 -0700 (PDT)",
+    "MIME-Version": "1.0",
+    "References": "<CAALrcFsTqfO8GopY1r6r1Deszos2wvcz5-WRF+85VdZL_k4_Tg@mail.gmail.com>",
+    "In-Reply-To": "<CAALrcFsTqfO8GopY1r6r1Deszos2wvcz5-WRF+85VdZL_k4_Tg@mail.gmail.com>",
+    "From": "Cheng Lim Teo <chenglim.teo@thoughtworks.com>",
+    "Date": "Mon, 30 Jun 2025 12:06:18 +0800",
+    "X-Gm-Features": "Ac12FXxUQxFaf_yo3_459vANlriVOsiF5cYtpzSb7GAU9O3tGz3n8sBgEtqKXGc",
+    "Message-ID": "<CAALrcFu19jB5hkCFwCT26YP4zWMLN7u6P+uDbtORwWuWVRcfHA@mail.gmail.com>",
+    "Subject": "Fwd: test for s3 write - 8",
+    "To": "test@chenglimteo5.awsapps.com",
+    "Content-Type": "multipart/mixed; boundary=\"000000000000373ca80638c22744\""
+  },
+  "attachments": [],
+  "embedded_images": [],
+  "content_ids": {
+    "ii_mcheeekb0": {
+      "filename": "mcp.png",
+      "content_type": "image/png",
+      "size": 71454,
+      "s3_key": "parsed/in3vrmmsm30148h8kfi4qmut4n26unsnfs9o1fg1/embedded_images/mcp.png",
+      "content_id": "ii_mcheeekb0"
+    }
+  },
+  "embedded_imagess": [
+    {
+      "filename": "mcp.png",
+      "content_type": "image/png",
+      "size": 71454,
+      "s3_key": "parsed/in3vrmmsm30148h8kfi4qmut4n26unsnfs9o1fg1/embedded_images/mcp.png",
+      "content_id": "ii_mcheeekb0"
+    }
+  ],
+  "attachmentss": [
+    {
+      "filename": "wework.pdf",
+      "content_type": "application/pdf",
+      "size": 5374661,
+      "s3_key": "parsed/in3vrmmsm30148h8kfi4qmut4n26unsnfs9o1fg1/attachments/wework.pdf",
+      "content_id": "f_mcheek191"
+    }
+  ],
+  "html_replacements": [
+    {
+      "content_id": "ii_mcheeekb0",
+      "s3_path": "https://chenglimteo.s3.amazonaws.com/parsed/in3vrmmsm30148h8kfi4qmut4n26unsnfs9o1fg1/embedded_images/mcp.png",
+      "replacements": 1
+    }
+  ],
+  "html_body_key": "parsed/in3vrmmsm30148h8kfi4qmut4n26unsnfs9o1fg1/content.html",
+  "text_body_key": "parsed/in3vrmmsm30148h8kfi4qmut4n26unsnfs9o1fg1/content.txt"
+}
