@@ -63,11 +63,11 @@ USER_STATE=$(aws workmail list-users \
 
 if [ "$USER_STATE" = "DISABLED" ]; then
   echo "🔓 Enabling user '$USER_NAME'..."
-  aws workmail enable-user \
+  aws workmail register-to-work-mail \
     --organization-id "$ORG_ID" \
-    --user-id "$USER_ID" \
-    --email "${USER_NAME}@${ORG_ALIAS}" \
-    --region "$AWS_REGION"
+    --entity-id     "$USER_ID" \
+    --email         "${USER_NAME}@${ORG_ALIAS}.awsapps.com" \
+    --region        "$AWS_REGION"
   echo "✅ Enabled WorkMail user: $USER_NAME"
 else
   echo "ℹ️  User is already enabled or in state: $USER_STATE"

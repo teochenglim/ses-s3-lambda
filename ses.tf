@@ -15,12 +15,6 @@ resource "aws_ses_receipt_rule" "save_to_s3" {
     object_key_prefix = "raw/"
     iam_role_arn      = aws_iam_role.ses_s3_role.arn
   }
-
-#   lambda_action {
-#     position        = 2
-#     function_arn    = aws_lambda_function.email_processor.arn
-#     invocation_type = "Event"
-#   }
 }
 
 resource "aws_iam_role" "ses_s3_role" {

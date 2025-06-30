@@ -71,16 +71,17 @@ resource "aws_iam_role_policy" "lambda_policy" {
   })
 }
 
-resource "aws_lambda_permission" "allow_ses" {
-  statement_id  = "AllowExecutionFromSES"
+resource "aws_lambda_permission" "allow_s3" {
+  statement_id  = "AllowExecutionFromS3"
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.email_processor.function_name
-  principal     = "ses.amazonaws.com"
-  source_arn    = aws_ses_receipt_rule_set.main.arn
+  principal     = "s3.amazonaws.com"
+  source_arn    = aws_s3_bucket.email_bucket.arn
 }
 
 resource "aws_s3_bucket_notification" "email_event_trigger" {
   bucket = aws_s3_bucket.email_bucket.id
+  eventbridge = false
 
   lambda_function {
     lambda_function_arn = aws_lambda_function.email_processor.arn
@@ -89,5 +90,5 @@ resource "aws_s3_bucket_notification" "email_event_trigger" {
     filter_prefix       = "raw/"
   }
 
-  depends_on = [aws_lambda_permission.allow_ses]
+  depends_on = [aws_lambda_permission.allow_s3]
 }
