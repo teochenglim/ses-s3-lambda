@@ -20,7 +20,7 @@ This Terraform configuration creates a complete email processing pipeline using 
 <pre>
 s3://your-bucket/
 ├── raw/
-│ └──[message_id] (.eml file)
+│      └──[message_id] (.eml file)
 └── parsed/
           └──[message_id]/
                          ├── metadata.json
